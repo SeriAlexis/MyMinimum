@@ -1,0 +1,379 @@
+
+@font-face {
+    font-family: 'Helvetic';
+    src: url('assets/ComicHelvetic_Medium.otf') format('opentype');
+    font-weight: bold; /* или 400 */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetic';
+    src: url('assets/ComicHelvetic_Light.otf') format('opentype');
+    font-weight: light;
+    font-style: normal;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    background: radial-gradient(ellipse at top left, #ccdaff, #faeaff);
+    min-height: 100vh;
+    font-family: 'Helvetic', sans-serif;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 4fr 2fr; /* левая шире правой */
+    width: 100%;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 10px 20px 5px 20px;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.left-header {
+    align-self: start;
+}
+
+h1 {
+    background-color: #a6ade7;
+    padding: 5px 25px 0px 25px;
+    border-radius: 50px;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.15;
+}
+
+.left-block {
+    background-color: #fcf4ff;
+    border-radius: 25px;
+    min-height: 80vh;
+    padding: 5px;
+}
+
+.left-weekday {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: bold;
+    gap: 8px;
+    padding: 0 15px;
+}
+
+/* Контейнер-обёртка для грида с прокруткой */
+.left-scroll {
+    height: 60vh;          /* или любая нужная высота */
+    overflow-y: auto;
+    background-color: none;
+    scrollbar-width: none;
+    border-radius: 16px;
+    scroll-snap-type: y mandatory;
+}
+
+.left-calendar{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 дней в неделе */
+    grid-auto-rows: calc((60vh - 32px) / 5);    
+    gap: 8px;
+    padding: 0 15px;
+}
+
+/* Каждая ячейка */
+.calendar-day {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    cursor: pointer;
+    scroll-snap-align: start;
+    background-color: #f3dfef;
+    border-radius: 10px;
+    padding: 5px;
+    position: relative;
+}
+
+.calendar-day.selected {
+    border: 5px solid #2f3b9a;
+    padding: 0;
+}
+
+.meal-blocks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 2px;
+}
+
+.meal-block {
+    width: 15px;
+    height: 30%;
+    border: 1px #fcf4ff solid;
+    border-radius: 4px;
+}
+
+/* Неактивные блоки прозрачны, но занимают место */
+.meal-block.inactive {
+    background-color: transparent;
+    border: none;
+    opacity: 0.3; /* или вовсе прозрачные, но с тем же размером */
+}
+
+.breakfast { background-color: #ff914d; }
+.lunch { background-color: #ffbd59; }
+.dinner { background-color: #ffde59; }
+
+.left-descript {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    padding: 7px 5px 3px 0;
+}
+
+.left-descript p {
+    position: relative;
+    padding-left: 25px; /* отступ под кружок */
+    margin: 4px;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.2;
+}
+
+.left-descript [class^="left-"]::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.left-breakfast::before { background-color: #ff914d; }
+.left-lunch::before { background-color: #ffbd59; }
+.left-dinner::before { background-color: #ffde59; }
+.left-work::before { background-color: #9af587; }
+.left-shower::before {background-color: #a9e0ff;}
+.left-sleep::before {background-color: #ab7adc;}
+
+.right {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background-color: white; 
+    border-radius: 25px;
+    height: auto;
+    margin: 15px 0;
+    padding: 10px;
+}
+
+.right-data {
+    display: flex;
+    justify-content: space-between;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.right-day {
+    background-color: #a6ade7;
+    padding: 5px 10px 0px 10px;
+    border-radius: 50px;
+    line-height: 1.2;
+}
+
+.right-blocks {
+    /* Контейнер для чекбоксов и будущих блоков */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 3fr 2fr;
+    gap: 10px;
+    padding: 4px 10px;
+}
+
+.right-labels {
+    grid-column: 1 / -1;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: 4px;
+    background-color: #effdff;
+    padding: 4px 10px;
+    margin-bottom: 5px;
+    min-height: 10px;
+    align-items: center;
+}
+
+.label {
+    color: rgba(0, 0, 0, 0.85);
+    padding: 4px 5px;
+    border-radius: 25%;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+    font-weight: bold;
+    line-height: 0.75;
+}
+
+.empty-labels {
+    color: #999;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+.right-checks {
+    background-color: #ebf2ff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 20px;
+    margin: 0 auto; /* центрирует блок с чекбоксами */
+    font-size: clamp(1rem, 1vw, 1.5rem);
+}
+
+.habit-check {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.right-checks label {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.right-checks input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #a6ade7;
+    border-radius: 6px;
+    background: white;
+    transition: all 0.2s;
+}
+
+.right-checks input[type="checkbox"]:hover {
+    border: 2px solid #5760b0;
+}
+
+.right-checks input[type="checkbox"]:checked {
+    background: #a6ade7;
+    position: relative;
+}
+
+.right-checks input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+}
+
+.right-notes h3 {
+    padding-left: 10px;
+}
+
+.note-text {
+    background-color: #edffe8;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    height: 75%;
+    width: 100%;
+    resize: none;
+}
+
+.right-plans {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+}
+
+.right-plans h3 {
+    padding-left: 10px;
+}
+
+.plan-text {
+    background-color: #fcf4ff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    height: 75%;
+    width: 100%;
+    resize: none;
+}
+
+@media (max-width: 900px) {
+
+    .body {
+        max-height: 100vh;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px;
+    }
+    
+    .left {
+        gap: 5px;
+    }
+
+    .left-block {
+        min-height: auto;
+    }
+
+    .left-scroll {
+        height: 45vh;
+    }
+
+    .left-calendar{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 дней в неделе */
+    grid-auto-rows: max(40px, calc((45vh - 25px) / 5));
+    padding: 0;
+    gap: 5px;
+}
+
+    .left-descript [class^="left-"]::before {
+    width: 15px;
+    height: 15px;
+}
+
+.meal-blocks {
+    justify-content: center;
+    gap: 1px;
+}
+
+.meal-block {
+    width: 12px;
+}
+
+.right-blocks {
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: none;
+    grid-template-columns: none;
+}
+
+.right-checks {
+    width: 50%;
+}
+
+}

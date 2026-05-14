@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  
+    <title>My Calendar</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="content">
+
+        <div class="left">
+            <div class="left-header">
+                <h1>Мой минимум (Сентябрь)</h1>
+            </div>
+            <div class="left-block">
+                <div class="left-weekday">
+                    <span>ПН</span>
+                    <span>ВТ</span>
+                    <span>СР</span>
+                    <span>ЧТ</span>
+                    <span>ПТ</span>
+                    <span>СБ</span>
+                    <span>ВС</span>
+                </div>
+                <div class="left-scroll">               
+                    <div class="left-calendar">
+                        <!--- Грид --->
+                    </div>
+                </div>            
+                <div class="left-descript">
+                    <p class="left-breakfast">Завтрак</p>
+                    <p class="left-lunch">Обед</p>
+                    <p class="left-dinner">Ужин</p>
+                    <p class="left-sleep">Сон 9ч</p>
+                    <p class="left-shower">Душ</p>
+                    <p class="left-work">Работа</p>  
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="right-data">
+                <h2 class="right-day">6 февраля</h2>
+                <h2>ПТ</h2>
+            </div>
+            <div class="right-blocks">
+                <div class="right-labels"></div>     
+                <div class="right-checks">               
+                    <label>Завтрак <input type="checkbox" class="habit-check" data-habit="breakfast"></label>               
+                    <label>Обед <input type="checkbox" class="habit-check" data-habit="lunch"></label>                
+                    <label>Ужин <input type="checkbox" class="habit-check" data-habit="dinner"></label>                
+                    <label>Душ <input type="checkbox" class="habit-check" data-habit="shower"></label>                
+                    <label>Сон 9ч <input type="checkbox" class="habit-check" data-habit="sleep"></label>                
+                    <label>Работа <input type="checkbox" class="habit-check" data-habit="work"></label>            
+                </div>
+                <div class="right-notes">
+                    <h3>Заметки:</h3>
+                    <textarea class="note-text" id="habit-notes" rows="5" placeholder="Заметки на день..."></textarea>
+                </div>
+                <div class="right-plans">
+                    <h3>Планы:</h3>
+                    <textarea class="plan-text" id="plan-notes" rows="5" placeholder="Планы на день..."></textarea>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+  <script src="script.js"></script>
+
+  <footer>
+
+  </footer>
+</body>
+</html>
