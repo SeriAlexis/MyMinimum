@@ -107,7 +107,7 @@ h1 {
 
 .calendar-day.selected {
     border: 5px solid #2f3b9a;
-    padding: 0;
+    padding: 1px;
 }
 
 .meal-blocks {
