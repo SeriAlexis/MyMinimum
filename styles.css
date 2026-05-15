@@ -295,6 +295,7 @@ h1 {
     height: 75%;
     width: 100%;
     resize: none;
+    font-family: 'Helvetic';
 }
 
 .right-plans {
@@ -314,6 +315,7 @@ h1 {
     height: 75%;
     width: 100%;
     resize: none;
+    font-family: 'Helvetic';
 }
 
 @media (max-width: 900px) {
