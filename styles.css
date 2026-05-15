@@ -42,7 +42,7 @@ body {
 .left {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: start;
     gap: 25px;
 }
 
@@ -129,7 +129,6 @@ h1 {
 .meal-block.inactive {
     background-color: transparent;
     border: none;
-    opacity: 0.3; /* или вовсе прозрачные, но с тем же размером */
 }
 
 .breakfast { background-color: #ff914d; }
@@ -193,7 +192,6 @@ h1 {
 }
 
 .right-blocks {
-    /* Контейнер для чекбоксов и будущих блоков */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 3fr 2fr;
@@ -239,7 +237,7 @@ h1 {
     width: 100%;
     max-width: 400px;
     padding: 10px 20px;
-    margin: 0 auto; /* центрирует блок с чекбоксами */
+    margin: 0 auto;
     font-size: clamp(1rem, 1vw, 1.5rem);
 }
 
@@ -328,11 +326,11 @@ h1 {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        padding: 5px;
+        padding: 10px;
     }
     
     .left {
-        gap: 5px;
+        gap: 15px;
     }
 
     .left-block {
@@ -374,6 +372,7 @@ h1 {
 
 .right-checks {
     width: 50%;
+    gap: 10px;
 }
 
 }

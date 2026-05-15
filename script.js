@@ -104,14 +104,12 @@ function updateLabels(dateKey) {
     
     const habits = habitData[dateKey] || {};
     
-    // Цвета для каждой привычки (фоновые)
     const habitColors = {
-        sleep: '#bc84f5',       // фиолетовый
-        shower: '#a9e0ff',      // голубой
-        work: '#9af587'         // зелёный
+        sleep: '#bc84f5',
+        shower: '#a9e0ff',
+        work: '#9af587'
     };
     
-    // Отображаемые названия (с иконками)
     const habitNames = {
         sleep: 'Сон 9ч',
         shower: 'Душ',
@@ -132,7 +130,7 @@ function updateLabels(dateKey) {
         activeLabels.push({
             habit: 'meals',
             name: '3 приёма пищи',
-            color: '#ffde59'      // можно выбрать любой цвет, например жёлтый
+            color: '#ffde59'
         });
     }
 
@@ -247,11 +245,10 @@ function updateCellColor(dateKey) {
     
     const habits = habitData[dateKey] || {};
     
-    // Список цветов для каждой привычки (порядок важен для градиента)
     const colorMap = {
-        sleep: '#bc84f5',   // фиолетовый
-        shower: '#a9e0ff',  // голубой
-        work: '#9af587'     // зелёный
+        sleep: '#bc84f5',
+        shower: '#a9e0ff',
+        work: '#9af587'
     };
     
     // Собираем цвета активных привычек
@@ -262,7 +259,7 @@ function updateCellColor(dateKey) {
     
     // Применяем стиль
     if (activeColors.length === 0) {
-        cell.style.background = ''; // сброс к стандартному фону
+        cell.style.background = '';
         cell.style.backgroundImage = '';
     } else if (activeColors.length === 1) {
         cell.style.background = activeColors[0];
