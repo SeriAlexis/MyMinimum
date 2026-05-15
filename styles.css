@@ -343,6 +343,10 @@ h1 {
         height: 45vh;
     }
 
+    .left-weekday {
+        padding: 0;
+    }
+
     .left-calendar{
     display: grid;
     grid-template-columns: repeat(7, 1fr); /* 7 дней в неделе */
