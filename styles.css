@@ -344,7 +344,7 @@ h1 {
     }
 
     .left-weekday {
-        padding: 0;
+        padding: 0 3px;
     }
 
     .left-calendar{
