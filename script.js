@@ -344,3 +344,11 @@ if (scrollContainer) {
     const weekHeight = scrollContainer.scrollHeight / 9;
     scrollContainer.scrollTop = weekHeight * 2;
 }
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then(() => {
+        console.log('SW registered');
+    }).catch(err => {
+        console.log('SW failed:', err);
+    });
+}
